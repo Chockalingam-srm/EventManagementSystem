@@ -1,0 +1,37 @@
+<div style="display:  flex; justify-content: center">
+    <div style="margin-top: 200px;">
+        <form [formGroup] = "formg" style="width: 500px;">
+
+            <h2 style="font-family: cursive"> LOGIN </h2>
+            <mat-form-field style="width: 400px;">
+                <mat-label> EMAIL : </mat-label>
+                <input
+                matInput
+                placeholder="enter your email"
+                formControlName = "email"
+                />
+            </mat-form-field>
+
+            <mat-form-field style="width: 400px;">
+                <mat-label> PASSWORD : </mat-label>
+                <input
+                matInput
+                type="password"
+                placeholder="enter your password"
+                formControlName = "password"
+                />
+            </mat-form-field>
+
+            <button
+            (click) = "loginCredentials()"
+            style="width: 400px; 
+            font-family: cursive;
+            font-size: medium;"
+            mat-raised-button
+            [disabled]="formg.invalid"
+            >
+            LOGIN
+            </button>
+        </form>
+    </div>
+</div>

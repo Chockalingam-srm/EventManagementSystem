@@ -1,0 +1,71 @@
+<button
+mat-flat-button
+(click)="navigate()">
+    ADD EVENTS
+</button>
+
+<button
+mat-flat-button
+(click)="navigatee()">
+    VIEW EVENTS
+</button>
+
+<br><br>
+
+<button
+mat-raised-button
+(click)="ascOrder()">
+ASCENDING ORDER
+</button>
+
+<button
+mat-raised-button
+(click)="descOrder()">
+DESCENDING ORDER
+</button>
+
+<table cellspacing="30">
+
+    <thead>
+        <tr>
+            <th> EVENT NAME </th>
+            <th> EVENT TYPE </th>
+            <th> EVENT DATE </th>
+            <th> VENUE </th>
+            <th> STATUS </th>
+            <th> PARTICIPANTS LIMIT </th>
+            <th> EDIT </th>
+            <th> DELETE </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let event of orderedEventDataList">
+            <td> {{event.eventname}} </td>
+            <td> {{event.eventtype }} </td>
+            <td> {{event.eventdate | date : 'dd/MM/yyyy'}} </td>
+            <td> {{event.venue}} </td>
+            <td [ngStyle]="{color : event.eventstatus === 'upcoming' ? 'yellow' : 'red'}"> {{event.eventstatus}}</td>
+            <td> {{event.maxparticipants}} </td>
+
+            <td>
+                <button
+                mat-raised-button
+                (click) = "editEvent(event)">
+                    EDIT
+                </button>
+            </td>
+
+            <td>
+                <button
+                mat-raised-button
+                (click) = "deleteEvent(event._id)">
+                    DELETE
+                </button>
+            </td>
+
+        </tr>
+    </tbody>
+
+
+</table>
